@@ -1,0 +1,115 @@
+version: "3.6"
+
+services:
+  pgauditv9.5: 
+    image: pgauditv9.5 
+    build:
+# GIVE THE PATH WHERE THE PROJECT IS. Eg. context: /home/user/pgaudit/9.5/
+      context: ./pgaudit/9.5/
+      dockerfile: Dockerfile   
+    container_name: pgbackupv9.5
+    environment:
+      - IS_AUDIT_LOG_ENABLED=true
+      - POSTGRES_USER=postgres
+      - PGAUDIT_LOG=ALL
+      - POSTGRES_PASSWORD=password 
+      - POSTGRES_DB=postgres
+    networks:
+      - myNet
+
+  pgauditv9.6: 
+    image: pgauditv9.6 
+    build:
+      context: ./pgaudit/9.6/
+      dockerfile: Dockerfile   
+    container_name: pgbackupv9.6
+    environment:
+      - IS_AUDIT_LOG_ENABLED=true
+      - POSTGRES_USER=postgres
+      - PGAUDIT_LOG=ALL
+      - POSTGRES_PASSWORD=password 
+      - POSTGRES_DB=postgres
+    networks:
+      - myNet
+
+  pgauditv10: 
+    image: pgauditv10 
+    build:
+      context: ./pgaudit/10/
+      dockerfile: Dockerfile   
+    container_name: pgbackupv10
+    environment:
+      - IS_AUDIT_LOG_ENABLED=true
+      - POSTGRES_USER=postgres
+      - PGAUDIT_LOG=ALL
+      - POSTGRES_PASSWORD=password 
+      - POSTGRES_DB=postgres
+    networks:
+      - myNet
+
+  pgauditv11: 
+    image: pgauditv11 
+    build:
+      context: ./pgaudit/11/
+      dockerfile: Dockerfile   
+    container_name: pgbackupv11
+    environment:
+      - IS_AUDIT_LOG_ENABLED=true
+      - POSTGRES_USER=postgres
+      - PGAUDIT_LOG=ALL
+      - POSTGRES_PASSWORD=password 
+      - POSTGRES_DB=postgres
+    networks:
+      - myNet 
+
+  pgauditv12: 
+    image: pgauditv12 
+    build:
+      context: ./pgaudit/12/
+      dockerfile: Dockerfile   
+    container_name: pgbackupv12
+    environment:
+      - IS_AUDIT_LOG_ENABLED=true
+      - POSTGRES_USER=postgres
+      - PGAUDIT_LOG=ALL
+      - POSTGRES_PASSWORD=password 
+      - POSTGRES_DB=postgres
+    networks:
+      - myNet
+
+  pgauditv13: 
+    image: pgauditv13 
+    build:
+      context: ./pgaudit/13/
+      dockerfile: Dockerfile   
+    container_name: pgbackup13
+    environment:
+      - IS_AUDIT_LOG_ENABLED=true
+      - POSTGRES_USER=postgres
+      - PGAUDIT_LOG=ALL
+      - POSTGRES_PASSWORD=password 
+      - POSTGRES_DB=postgres
+    networks:
+      - myNet
+
+  pgauditv14:
+    image: pgauditv14 
+    build:
+      context: ./pgaudit/14/
+      dockerfile: Dockerfile   
+    container_name: pgbackupv13
+    environment:
+      - IS_AUDIT_LOG_ENABLED=true
+      - POSTGRES_USER=postgres
+      - PGAUDIT_LOG=ALL
+      - POSTGRES_PASSWORD=password 
+      - POSTGRES_DB=postgres
+    networks:
+      - myNet
+
+
+networks:
+  myNet:
+    name: myNet
+    driver: bridge
+      
